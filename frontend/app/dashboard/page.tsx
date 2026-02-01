@@ -1,8 +1,11 @@
 'use client';
 
 import Link from 'next/link';
+import { useAuth } from '../context/AuthContext';
 
 export default function DashboardPage() {
+  const { logout } = useAuth();
+
   return (
     <div className="min-h-screen bg-black text-white">
 
@@ -12,12 +15,14 @@ export default function DashboardPage() {
           Dashboard
         </h1>
 
-        <Link
-          href="/login"
+        <button
+          onClick={logout}
           className="rounded-lg bg-white/10 px-4 py-2 text-sm font-medium transition hover:bg-white/20"
         >
           Logout
-        </Link>
+        </button>
+
+
       </header>
 
       {/* Main Content */}
